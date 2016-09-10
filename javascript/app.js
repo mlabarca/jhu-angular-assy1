@@ -21,6 +21,7 @@
       if (dishList.length < 1){
         $scope.dishesPlaceholder = 'Please enter data first';
         $scope.message = '';
+        $scope.dishes = '';
       } else if (dishList.length < 4){
         $scope.message = 'Enjoy!';
       } else {
