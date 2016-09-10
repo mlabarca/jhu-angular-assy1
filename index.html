@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <script type="text/javascript" src="javascript/angular.min.js"></script>
+    <script type="text/javascript" src="javascript/filter_polyfill.js"></script>
     <script type="text/javascript" src="javascript/app.js"></script>
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
@@ -23,7 +24,7 @@
             <button class="btn btn-default" ng-click='checkTooMuch()'>Check If Too Much</button>
           </div>
           <div class="form-group message">
-           <!-- Your message can go here. -->
+            {{message}}
           </div>
         </div> 
    </div>

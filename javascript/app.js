@@ -5,11 +5,27 @@
 
   LunchController.$inject = ['$scope'];
   function LunchController($scope) {
-
-    $scope.dishesPlaceholder = 'list comma separated dishes you usually have for lunch';
+    $scope.dishes = '';
+    $scope.dishesPlaceholder = 'List comma separated dishes you usually have for lunch';
+    
+    // Strip spaces and remove empty dishes from scope.dishes
+    var getDishList = function(){
+      var trimmedDishList = $scope.dishes.trim().split(',');
+      var filteredDishList = trimmedDishList.filter(function(el){return el.length != 0});
+      return filteredDishList
+    };
+    
+    // Change messages and placeholder when button clicked according to input value
     $scope.checkTooMuch = function(){
-      var trimmedDishes = $scope.dishes.trim();
-      console.log(trimmedDishes); 
+      var dishList = getDishList();
+      if (dishList.length < 1){
+        $scope.dishesPlaceholder = 'Please enter data first';
+        $scope.message = '';
+      } else if (dishList.length < 4){
+        $scope.message = 'Enjoy!';
+      } else {
+        $scope.message = 'Too much!';
+      }
     };
   }
 })();
